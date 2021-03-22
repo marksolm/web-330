@@ -1,0 +1,133 @@
+/**
+Title: site.css
+Author: Soliman Abdelmalak
+Date: 03/18/2021
+Description: Styling for the index.html file
+*/
+
+/**
+HTML and the body font-family set to the  Google font.
+*/
+html,body{
+ font-family:'Oswald',Verdana, Arial, sans-serif; 
+}
+/**
+This is the setup margins for #container.
+*/
+#container{
+   margin-top: 50px ;
+   margin-left: 100px;
+   margin-right: 100px;
+ }   
+ /**
+This is the setup for #icon-mode hover and set the cursor to a pointer.
+*/
+#icon-mode:hover {
+ cursor: pointer; 
+}
+/**
+This is the setup for #icon-text and set the left padding to 10 pixels.
+*/
+#icon-text{
+   padding-left: 10px;
+}
+/**
+This is the setup for .pull-right and set the style of float to the right.
+.pull-right{..
+*/
+.pull-right{
+   float:right
+}
+/**
+These are the setup for the h1, h2, h3, and h4 tags.
+*/
+ h1, h2, h3, h4{
+   background-color:#3C275A;
+   color: white; 
+   border: solid 1px;
+   border-color: #D6A800;
+   padding: 10px;
+ }
+/**
+These are the Setup of the anchor tags.
+*/
+a{
+  color:#453674;
+  text-decoration: none;
+}
+/**
+These are the Set of the anchor tag’s hover
+*/
+a:hover {
+   background-color:#D6A800;
+   color:#4F3674 ;
+}
+/**
+These are the Set of the .assign-container
+*/
+.assign-container{
+    margin: auto;
+}
+/**
+These are the Set of the .assign-content
+*/
+.assign-content{
+ align-content: center;
+}
+/**
+These are the Set of the .assign-results-text
+*/
+.assign-results-text{
+    text-align: center;
+    font-size: 28px;
+}
+/**
+These are the Set of the .full-width
+*/
+ .full-width{
+   width: 100%;
+ }
+
+ /**
+  These are the Setup of the anchor tags.
+ */
+ #return-home{
+    color: #4f3674;
+    text-decoration: none;
+    margin-left: 200px;
+    font-size: 22px;
+ } 
+ /**
+ These are the Set of the anchor tag’s hover
+*/
+.return-home:hover{
+   background-color: #d6a800;
+   color: #4f3674;
+}
+/* visited link */
+.return-home:visited {
+   color:#3c275a;
+  }
+  /**
+   This is the setup  for .app-header.
+  */
+  .app-header{
+     font-size: 28px;
+     text-align: center;
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0.2);
+     width: 90%;
+     display: inline-grid;
+     grid-template-columns: auto;
+    }
+/**
+  This is the setup  for label and input tags.
+  */
+  .form {
+     padding: 20px;
+     display: inline-grid;
+     grid-template-columns: auto;
+  }
+  .form-field{
+     color: black;
+  }
+  

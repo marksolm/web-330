@@ -1,0 +1,66 @@
+<!-- Title: index.html
+     Author: Soliman Abdelmalak
+     Date: 03/18/2021
+     Description: This is my WEB 330 landing site that all my weekly assignments will be linked to it.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>WEB 330 – Enterprise JavaScript II</title>
+    <!-- These are the meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Advance JavaScript language" />
+    <meta name="keywords" content="CSS, HTML, Web Development, Enterprise JavaScript II" />
+    <meta name="robots" content="nofollow" />
+    <meta name="author" content="Professor Krasso">
+     <!-- this is an internal links for stylesheet. -->
+     <link href="site.css" type="text/css" rel="stylesheet">
+     <link href="theme.css " rel="stylesheet">
+     <!-- this is an external link to the CDN for font-awesome. -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"rel="stylesheet">
+    <!-- this is an external link for the google fonts. -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+  </head>
+  <!-- This is the main div to the body that giving CSS # container. -->
+  <body class="light-theme">
+    <div id="container"> 
+     <!-- HTML icon tag with an onclick even that calls the function toggleMode and pass-in the reference this. -->
+      <i id="icon-mode" class="fa fa-toggle-off pull-right" style="font-size: 28px;" onclick="toggleMode(this)">
+        <span id="icon-text"></span>
+      </i>
+      <h1>Soliman Abdelmalak’s Landing Page</h1>
+      <h2>WEB 330 Enterprise JavaScript II</h2>
+      <hr>
+      <h3>Weekly Assignments</h3>
+      <!-- This is an unordered list for the weekly assignments links. -->
+        <ul>
+          <li><a href="./week-2/">Assignment 2.2</a> </li>
+          <li><a href="./week-3/">Assignment 3.2</a></li>
+          <li><a href="./week-4/">Assignment 4.2</a></li>
+          <li><a href="./week-5/">Assignment 5.2</a></li>
+          <li><a href="./week-6/">Assignment 6.2</a></li>
+          <li><a href="./week-7/">Assignment 7.2</a></li>
+          <li><a href="./week-8/">Assignment 8.2</a></li>
+        </ul>
+      <h3>Projects</h3>
+        <ul>
+         <li><a href="./">Personal Portfolio</a></li>
+         <!-- I added an external link to my WEB 231's Landing Page -->
+         <li> <a href="https://marksolm.github.io/web-231//" target="_blank">WEB 231's Landing Page</a></li>
+        </ul>
+      <h4>Important Links</h4>
+         <!-- These are Important external links. -->
+        <ul> 
+         <li> <a href="https://github.com/buwebdev/web-330/" target="_blank">WEB 330’s GitHub Repository</a></li>
+         <li> <a href="https://bruinconnect.bellevue.edu/" target="_blank">BRUIN Connect</a></li>
+         <li> <a href="https://validator.w3.org/" target="_blank">W3C HTML Validator</a></li>
+         <li> <a href="http://jigsaw.w3.org/css-validator/" target="_blank">W3C CSS Validator</a></li>
+         <li> <a href="https://www.w3schools.com/html/" target="_blank">HTML Tutorial:</a></li>
+         <li><a href="https://www.w3schools.com/js/js_best_practices.asp" target="_blank">JavaScript Best Practices:</a></li>
+        </ul>
+    </div>
+    <script type="application/javascript" src="theme.js"></script>
+  </body>
+</html>

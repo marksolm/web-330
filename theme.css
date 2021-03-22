@@ -1,0 +1,135 @@
+/**
+Title: theme.css
+Author: Soliman Abdelmalak
+Date: 03/18/2021
+Description: Styling for the index.html file
+*/
+
+
+/* Add a CSS class for light-theme and assign it to the HTML body element.*/
+body.light-theme {
+    --text-color: #000;
+    --background-color: #fff;
+    --anchor-color: #4F3674;
+    --h1-background-color: #3c275a;
+    --h1-border-color: #d6a800;
+    --heading-background-color: #3c275a;
+    --heading-color: #fff;
+    --heading-border-color: #d6a800;
+    --anchor-hover-color: #4f3674;
+    --anchor-hover-background-color: #d6a800;
+    --card-background-color: #fff;
+    --card-title-color: #4f3674;
+    --btn-background-color: #4f3674;
+    --btn-color: #fff;
+    --btn-hover-background-color: #d6a800;
+    --btn-hover-color: #4f3674;
+    --input-border-color: #ccc;
+}
+
+/* Add a CSS class for dark-theme and assign it to the HTML body element.*/
+body.dark-theme {
+    --text-color: #fafafa;
+    --background-color: #303030;
+    --anchor-color: #fff;
+    --h1-background-color: #9c27b0;
+    --h1-border-color: #9c27b0;
+    --heading-background-color: #424242;
+    --heading-color: #fff;
+    --heading-border-color: #424242;
+    --anchor-hover-color: #D176e1;
+    --anchor-hover-background-color: #303030;
+    --card-background-color: #424242;
+    --card-title-color: #D176e1;
+    --btn-background-color: #D176e1;
+    --btn-color: #fff;
+    --btn-hover-background-color: #7d4787;
+    --btn-hover-color: #fff;
+    --input-border-color: #303030;
+}
+
+/* the Set up the HTML body color and background to the --text-color and --background-color */
+body {
+     color: var(--text-color);
+     background-color: var(--background-color);
+     font-family:'Oswald',Verdana, Arial, sans-serif; 
+}
+
+/* Set the HTML anchor color to the variable --anchor-color and remove the underline. */
+a {
+    color: var(--anchor-color);
+    text-decoration: none;
+}
+
+/* The Set up of the HTML anchor hover background color */
+a:hover {
+    background-color: var(--anchor-hover-background-color);
+    color: var(--anchor-hover-color);
+}
+
+/* The Set up of h1 background color,padding,and the border. */
+h1 {
+     color: var(--heading-color);
+     background-color: var(--h1-background-color);
+     padding: 10px;
+     border: solid 1px var(--h1-border-color);
+}
+
+
+/* these are the setup for the h2, h3, and h4 tags.*/
+h2, h3, h4 {
+    color: var(--heading-color);
+    background-color: var(--heading-background-color);
+    padding: 10px;
+    border: solid 1px var(--heading-border-color);
+}
+
+ /* This is the setup for the .card */
+.card {
+     background-color: var(--card-background-color);
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0,0.2);
+     transition: 0.3s;
+     width:600px;
+     margin: 3% auto 0;
+}
+ /* This is the setup for the .card-title */
+.card-title {
+    text-align: center;
+    font-size: 2em;
+    color: var(--card-title-color);
+    font-weight: 400    
+}
+.card-content {
+     padding: 2px 16px;
+}
+
+ /*This is setup for the CSS btn-primary classes background and the text colors.*/
+ .btn-primary {
+    background-color: var(--btn-background-color);
+    color: var(--btn-color);
+}
+/* Replace the CSS btn-primary:hover background and the text colors. */
+.btn-primary:hover {
+    background-color: var(--btn-hover-background-color);
+    color: var(--btn-hover-color);
+}
+
+/* Replace the CSS input classes border color with the variable --input-border-color. */
+.input {
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid var(--input-border-color);
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Replace the CSS drop-down-menu classes border color with the variable --input-border-color.*/
+.drop-down-menu {
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid var(--input-border-color);
+    border-radius: 4px;
+    box-sizing: border-box;
+}

@@ -92,13 +92,15 @@ h2, h3, h4 {
      width:600px;
      margin: 3% auto 0;
 }
+
  /* This is the setup for the .card-title */
 .card-title {
     text-align: center;
     font-size: 2em;
     color: var(--card-title-color);
-    font-weight: 400    
+    font-weight: 400;  
 }
+
 .card-content {
      padding: 2px 16px;
 }
@@ -132,4 +134,20 @@ h2, h3, h4 {
     border: 1px solid var(--input-border-color);
     border-radius: 4px;
     box-sizing: border-box;
+}
+/*This is the setup  for the input button.*/
+.btn {
+    border:none;
+    text-align:center;
+    text-decoration: none;
+    display:inline-block; 
+    background-color: #4F3674;
+    color: white;
+    padding: 15px 32px;
+    height: 55px;
+    width: 70%;
+    font-size: x-large;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    font-size: large;
 }

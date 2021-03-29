@@ -18,6 +18,7 @@ This is the setup margins for #container.
    margin-top: 50px ;
    margin-left: 100px;
    margin-right: 100px;
+   padding: 10px;
  }   
  /**
 This is the setup for #icon-mode hover and set the cursor to a pointer.
@@ -94,8 +95,9 @@ These are the Set of the .full-width
  #return-home{
     color: #4f3674;
     text-decoration: none;
-    margin-left: 200px;
+    margin-left: 30%;
     font-size: 22px;
+   
  } 
  /**
  These are the Set of the anchor tag’s hover
@@ -114,20 +116,35 @@ These are the Set of the .full-width
   .app-header{
      font-size: 28px;
      text-align: center;
-     box-shadow: 0 4px 8px 0 rgba(0, 0, 0.2);
-     width: 90%;
-     display: inline-grid;
-     grid-template-columns: auto;
     }
 /**
   This is the setup  for label and input tags.
   */
   .form {
-     padding: 20px;
      display: inline-grid;
      grid-template-columns: auto;
+     margin: 3% auto 0;
   }
   .form-field{
      color: black;
+     padding: 15px;
   }
-  
+
+
+/**
+This is the setup  for the drop down menu.
+*/
+#txtPhrase{
+padding: 15px 32px;
+ height: 15px;
+ width: 50%;
+ font-size: 16px;
+}   
+
+/**
+These are the Set of the .assign-results-text
+*/
+.assign-results-text{
+   text-align: center;
+   font-size: 28px;
+}

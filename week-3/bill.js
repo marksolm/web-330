@@ -8,10 +8,11 @@ Description: Import/Export bill class to the Restaurant App
 //Create Bill class with 4 properties _beverages, _appetizers, _mainCourses, and _desserts and assign them an empty array.
 export class Bill {
     constructor(_beverages, _appetizers, _mainCourses, _desserts)
-    { this._beverages = []; 
-      this._appetizers = [];  
-      this._mainCourses = [];  
-      this._desserts = [];
+    { 
+        this._beverages = [];
+        this._appetizers = [];
+        this._mainCourses = [];
+        this._desserts = [];
     }
      //Create an addBeverage() function , push the beverage object to the _beverages array.
     addBeverage(beverage) {

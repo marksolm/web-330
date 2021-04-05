@@ -1,4 +1,4 @@
-<!-- Title: restaurant.html
+<!-- Title: restaurant app.
      Author: Soliman Abdelmalak
      Date: 04/03/2021
      Description: This is a page linked to the web-330 landing site under the weekly assignments list for Assignment 3.2.
@@ -127,9 +127,9 @@
       <!--Set the script tag to type module.-->
       <script type="module">
         // Import the Bill, Beverage, Appetizer, MainCourse, and Dessert classes from the index.js file.
-        import { Bill, Beverage, Appetizer, MainCourse, Dessert } from "./index.js"
-        // Create on onclick function to place order. 
-         document.getElementById("btnOrder").onclick = function () {
+        import { Bill, Beverage, Appetizer, MainCourse, Dessert } from "./index.js";
+        // Create on onclick function to place order.
+         document.getElementById("btnOrder").onclick = function() {
            // JavaScript variables for the main-course div and checkboxes. 
            const beveragesEl = document.getElementById("beverages");
            const beverages = beveragesEl.getElementsByTagName("input");	
@@ -137,7 +137,7 @@
            const appetizersEl = document.getElementById("appetizers");
            const appetizers = appetizersEl.getElementsByTagName("input");	
 
-           const mainCoursesEl = document.getElementById("main-courses");
+           const mainCoursesEl = document.getElementById("mainCourses");
            const mainCourses = mainCoursesEl.getElementsByTagName("input");	
 
            const dessertsEl = document.getElementById("desserts");

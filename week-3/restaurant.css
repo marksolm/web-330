@@ -8,7 +8,7 @@ Description: Styling for the restaurant.html file
 .card-container {
     display: inline-grid;
     grid-template-columns: auto auto;
-    margin-left: 300px;
+    margin-left: 380px;
 }  
  /* This is the setup for the .grid-main */
 .grid-main{

@@ -124,13 +124,11 @@
       </div>
     </div>
      <!-- this is the beginning of Javascript  -->
-    <script  src="../theme.js"></script>
+     <script type="application/javascript" src="../theme.js"></script>
       <!--Set the script tag to type module.-->
       <script type="module">
         // Import the Bill, Beverage, Appetizer, MainCourse, and Dessert classes from the index.js file.
         import { Bill, Beverage, Appetizer, MainCourse, Dessert } from "./index.js";
-        //call the setSelectedTheme() function 
-        setSelectedTheme();
         // Create on onclick function to place order.
          document.getElementById("btnOrder").onclick = function() {
            // JavaScript variables for the main-course div and checkboxes. 

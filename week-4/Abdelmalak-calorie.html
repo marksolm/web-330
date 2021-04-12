@@ -1,0 +1,115 @@
+<!--
+    Title: Abdelmalak-calorie.html.
+     Author: Soliman Abdelmalak
+     Date: 04/10/2021
+     Description: This is a page linked to the web-330 landing site under the weekly assignments list for Assignment 4.2.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>WEB 330 - Enterprise JavaScript II</title>
+    <!-- These are the meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Advance JavaScript language" />
+    <meta name="keywords" content="CSS, HTML, Web Development, Enterprise JavaScript II" />
+    <meta name="robots" content="nofollow" />
+    <meta name="author" content="Professor Krasso">
+     <!-- this is internal links for stylesheet. -->
+     <link rel="stylesheet" href="../theme.css">
+     <link rel="stylesheet" href="../site.css">
+     <link rel="stylesheet" href="Abdelmalak-calorie.css">
+     <!-- this is an external link to the CDN for font-awesome. -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- this is an external link for the google fonts. -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+  </head>
+   <!-- This is the beginning of the body. -->
+    <body class="light-theme">
+      <!-- This is the setup for class app-header. -->
+      <div class="app-header">Welcome to the Calorie App!</div>
+        <div class= "card">
+         <div class="card-title">Calorie Search Form</div>
+            <div class="card-container">
+                <div class="form">
+                    <div class= "form-field">
+                      <label>Enter a food item</label>
+                      <input type="text" class="input" id="txtFoodItem">
+                      <span id="foodList"></span>
+                    </div>
+                    <div class="form-field">
+                    <!--Button setup with an id of btnSearch and a text value of "Search"-->
+                   <button class="btn btn-primary full-width" id="btnSearch">Search</button>
+                </div>
+            </div>
+        </div>
+      <!-- this is an internal link to the landing page index. -->
+      <div> <a id="return-home" href="../index.html">Return</a></div>
+        <div class="assign-content">
+            <div class="card">
+                <div class="card-title">Search Results</div>
+                <div class="card-content">
+                    <table style="text-align: left;">
+                         <thead>
+                                 <th>Name</th>
+                                 <th>Calories</th>
+                         </thead>
+                         <tbody id="searchResults"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+     <!-- this is the beginning of Javascript  -->
+     <script type="application/javascript" src="../theme.js"></script>
+     <!--Set the script tag to type module.-->
+      <script type="module">
+          // import statement for the CalorieConverter class.
+          import { CalorieConverter } from "./calorie-converter.js";
+          // Create a variable named txtFoodItemEl and assign it the txtFoodItem input field.
+          let txtFoodItemEl = document.getElementById("txtFoodItem");
+          // Register an onclick event for the btnSearch field using the document.getElementById function.
+        document.getElementById("btnSearch").onclick = function() {
+              // Create a variable named txtFoodItem and assign it the inputted value.
+             let txtFoodItem = txtFoodItemEl.value;
+             // Create a variable named foods and call the static find function from the CalorieConverter class.
+             let foods = CalorieConverter.find(txtFoodItem)
+              // Create a variable named tableData and build a string to represent an HTML table.
+              let tableData = '';
+              // Using a for...of loop, iterate over the foods variable and populate the HTML table with table rows and table data..
+              for (let food of foods) {
+                  let tableRow = `
+                   <tr>
+                       <td>${food.name}</td>
+                       <td>${food.calories}</td>
+                   </tr>`
+                   tableData += tableRow;
+                }
+              // Closing tags for table elements.
+              tableData += "</tbody></table>";
+              // Once user inputs item and click button/hits enter; result binds to resultsTable element.
+              document.getElementById("searchResults").innerHTML = tableData;
+        }
+
+          // This eventListener lets the user use the 'enter' key instead of clicking the search button.
+            document.addEventListener("keyup", function(event) {
+             // Add an if statement that checks if the “Enter” key is pressed.
+               if (event.key == "Enter") {
+                     document.getElementById("btnSearch").click();
+               }
+           });
+          // Create a variable named foodList and call the static data field off of the CalorieConverter class.
+          let foodList = CalorieConverter.data;
+          // Create a variable named foodListData and build an HTML.
+          let foodListData = "<i> (Ex: ";
+          // Using a for...of statement, append the food.name to the variable string.
+          for (let food of foodList) {
+              foodListData += `${food.name}, `;
+          }
+          // Building string based on food that's in foodListData.
+           foodListData = `${foodListData.slice(0,-2)})</i>`;
+          // bind the results to the foodList div’s innerHTML.
+          document.getElementById("foodList").innerHTML = foodListData;
+      </script>
+    </body>
+</html>

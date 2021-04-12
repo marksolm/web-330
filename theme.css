@@ -25,6 +25,11 @@ body.light-theme {
     --btn-hover-background-color: #d6a800;
     --btn-hover-color: #4f3674;
     --input-border-color: #ccc;
+    --table-header-background-color:#4f3674;
+    --table-header-color: #fff;
+    --table-border-color: #ddd;
+    --table-hover-background-color: #d6a800;
+    --table-hover-color: #4f3674;
 }
 
 /* Add a CSS class for dark-theme and assign it to the HTML body element.*/
@@ -46,6 +51,11 @@ body.dark-theme {
     --btn-hover-background-color: #7d4787;
     --btn-hover-color: #fff;
     --input-border-color: #303030;
+    --table-header-background-color:#D176E1;
+    --table-header-color: #fff;
+    --table-border-color: #303030;
+    --table-hover-background-color: #7d4787;
+    --table-hover-color: #fff;
 }
 
 /* the Set up the HTML body color and background to the --text-color and --background-color */
@@ -150,4 +160,33 @@ h2, h3, h4 {
     margin-bottom: 10px;
     margin-left: 10px;
     font-size: large;
+}
+
+
+/** This is the set up for the table. */
+table {    
+    margin-bottom: 30px;
+    border-collapse: collapse;
+    background-color: var(--heading-background-color);
+}
+
+/** This is the set up for the Table header. */
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: var(--table-header-background-color);
+    color: var(--table-header-color);
+ }
+
+/** This is the set up for the table data. */
+td, th {
+    padding: 8px;
+    border: 1px solid var(--table-border-color);
+}
+/*Styling for table row hover.*/
+tr:hover {
+    background-color: var(--table-hover-background-color);
+    color: var(--table-hover-color);
+    cursor: pointer;
 }

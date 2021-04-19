@@ -1,0 +1,28 @@
+/**
+Title: Abdelmalak-bobs-auto-repair.css
+Author: Soliman Abdelmalak
+Date: 04/17/2021
+Description: Styling for the Abdelmalak-bobs-auto-repair.html file
+*/
+ 
+/* This is the setup for the  cart-message */
+#cart-message {
+    float: right;
+    color: #df546a;
+    font-size: 12px;
+    letter-spacing: 2px;
+    padding-right: 260px;
+}
+/* This is the set up of the hover HTML <i> element to a cursor with a pointer. */
+i:hover {
+    cursor: pointer;
+}
+#btnAddProduct{
+    padding: 15px 32px;
+     height: 50px;
+     width: 50%;
+     font-size: 16px;
+    } 
+#return-home{
+ margin-left: 4%;
+}

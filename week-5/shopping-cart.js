@@ -22,8 +22,8 @@ export class ShoppingCart {
          this._products.push(product);
     }
     // create an iterator and in the body use a for...of statement to loop over the products array
-    * myIterator() {
-        for (let product of _products) {
+    *[Symbol.iterator]() {
+        for (let product of this._products) {
             yield product;
         }
     }

@@ -59,11 +59,15 @@
         <div class="assign-content">
             <div class="card">
                 <div class="card-title">Shopping Cart</div>
-                <div class="card-content">
+                <div class="card-content" id="shoppingCart">
                     <table>
-                     <thead id="shoppingCart"></thead>
-                     <tbody id="shoppingCart"></tbody>
-                    </table>
+                       <thead>
+
+                       </thead>
+                       <tbody>
+                        
+                      </tbody>
+                 </table>
                 </div>
             </div>
         </div>
@@ -97,27 +101,26 @@
                   //Call the setCartCount() function.
                     setCartCount();
                     alert(`${product} was added to your shopping cart!`);
+                    productList.value = "Select";
                 }
             }
             //Register an onclick event for the cartIcon element
             document.getElementById("cartIcon").onclick = function() {
                 //Create a variable named cartDisplayTable and assign it the string value with the header of an HTML table
-                let cartDisplayTable = `
-                <th>ID</th>
-                <th>Name</th>
-                <th>Price</th>`;
+                let cartDisplayTable = `<table class="table"><tr><th>ID</th><th>Name</th><th>Price</th>`;
 
-                for (let product of shoppingCart) {
+                for (let _products of shoppingCart) {
                     let tableData = `
                     <tr>
-                        <td>${product.name}</td>
-                        <td>${product.value}</td>
-                        <td>${product.price}</td>
+                        <td>${_products.id}</td>
+                        <td>${_products.name}</td>
+                        <td>${_products.price}</td>
                     </tr>`;
-                    shoppingCart.myIterator();
 
-                    document.getElementById('shoppingCart').innerHTML = cartDisplayTable;
                 }
+                cartDisplayTable += `</table>`
+                document.getElementById('shoppingCart').innerHTML = cartDisplayTable;
+
             }
             //Create a function named setCartCount().
             function setCartCount() {

@@ -1,0 +1,24 @@
+/**
+Title: Abdelmalak-future-value.css
+Author: Soliman Abdelmalak
+Date: 04/03/2021
+Description: Styling for the Abdelmalak-future-value.html file
+*/
+
+/* 
+Styling for .danger class.
+*/
+.danger {
+    float: right;
+    color: #df546a;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+/* 
+    Set up .form-label class display to inline block and padding a value of 1rem.
+*/
+.form-label {
+    display: inline-block;
+    padding-top: 1rem;
+}

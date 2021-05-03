@@ -1,0 +1,56 @@
+<!--
+    Title: books.xml
+     Author: Soliman Abdelmalak
+     Date: 05/01/2021
+     Description: XML document with a parent <books> node and child <book> nodes.
+-->
+<bookstore>
+    <!--The Hobbit or There and Back Again-->   
+    <book>
+        <isbn>9780345339683</isbn>
+        <title lang="en">The Hobbit or There and Back Again</title>
+        <description>N/A</description>
+        <pages>287</pages>
+        <author>J.R.R. Tolkien</author>
+    </book>
+    <!--The Fellowship of the Ring-->
+    <book>
+        <isbn>9780261103573</isbn>
+        <title lang="en">The Fellowship of the Ring</title>
+        <description>Bing the First Part of the Lord of the Rings</description>
+        <pages>416</pages>
+        <author>J.R.R. Tolkien</author>
+    </book>
+    <!--The Two Towers-->
+    <book>
+        <isbn>9780261102361</isbn>
+        <title lang="en">The Two Towers</title>
+        <description>Being the Second Part of the Lord of the Rings</description>
+        <pages>442</pages>
+        <author>J.R.R. Tolkien</author>
+    </book>
+     <!--The Return of the King-->
+    <book>
+        <isbn>9780261102378</isbn>
+        <title lang="en">The Return of the King</title>
+        <description>Being the third part of the Lord of the Rings</description>
+        <pages>556</pages>
+        <author>J.R.R. Tolkien</author>
+    </book>
+     <!--Dune: Deluxe Edition-->
+    <book>
+        <isbn>9780593099322</isbn>
+        <title lang="en">Dune: Deluxe Edition</title>
+        <description>N/A</description>
+        <pages>688</pages>
+        <author>Frank Herbert</author>
+    </book>
+    <!--The Catcher and the Rye-->
+    <book>
+        <isbn>9780316769532</isbn>
+        <title lang="en">The Catcher and the Rye</title>
+        <description>N/A</description>
+        <pages>277</pages>
+        <author>J.D. Salinger</author>
+    </book>
+</bookstore>

@@ -1,0 +1,130 @@
+<!--
+    Title: Abdelmalak-whatabook1.html
+     Author: Soliman Abdelmalak
+     Date: 05/01/2021
+     Description: This is a page linked to the web-330 landing site under the weekly assignments list for Assignment 7.2.
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+     <title>WEB 330 - Enterprise JavaScript II</title>
+     <!-- These are the meta tags -->
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta name="description" content="Advance JavaScript language" />
+     <meta name="keywords" content="CSS, HTML, Web Development, Enterprise JavaScript II" />
+     <meta name="robots" content="nofollow" />
+     <meta name="author" content="Professor Krasso">
+     <!-- this is internal links for stylesheet. -->
+     <link rel="stylesheet" href="../theme.css">
+     <link rel="stylesheet" href="../site.css">
+     <!-- this is an external link to the CDN for font-awesome. -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <!-- this is an external link for the google fonts. -->
+     <link href="https://fonts.gstatic.com" rel="preconnect">
+     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+    </head>
+    <body class="light-theme">
+        <div class="card-container">
+         <!-- This is the setup for class app-header. -->
+         <div class=" app-header">Welcome to the WhatABook, Part 1 App!</div>
+            <div class= "card">
+                 <!-- card-title with a text value of Book Listing-->
+                 <div class="card-title">Book Listing</div>
+                 <!-- card-content with an id of bookList-->
+                 <div class="card-content" id="bookList"></div>  
+            </div>
+         <!-- this is an internal link to the landing page index. -->
+            <div> <a id="return-home" href="../index.html">Return</a></div>
+            <div class="card">
+                <!-- card-title with a text value of “Selected Book” -->
+                <div class="card-title">Selected Book</div>
+                <!-- card-content with an id of futureValue. -->
+                <div class="card-content"  id="selectedBook"></div>
+            </div>
+        </div>
+     <!-- this is the beginning of Javascript  -->
+         <script type="application/javascript" src="../theme.js"></script>
+        <script type="module">
+             //Register an event listener for DOMContentLoaded
+            window.addEventListener('DOMContentLoaded', (event) => {
+                console.log('DOM fully loaded and parsed');
+                //Create a  named fileName variable and assign it the string value of the books.xml document
+                let fileName = 'books.xml';
+                //Using JavaScripts fetch() API, pass-in the fileName variable.
+                fetch(fileName)
+                .then(res => res.text())
+                .then(data => {
+                    //Create a new variable named domParser and instantiate a new DOMParser object and assign it to the variable.
+                    let domParser = new DOMParser();
+                    //Create a new variable named xmlBooks and call the parseFromString() on the domParser variable
+                    let xmlBooks = domParser.parseFromString(data, "text/xml")
+                   //Call the laodBooks() function supplying it the xmlBooks variable
+                    loadBooks(xmlBooks);
+                    //Call the addIsbnClickEvents() function.
+                    addISBNClickEvents();
+                })
+            });
+
+            // Create a function named laodBooks() with one parameter with a value of xml.
+            function loadBooks(xml) {
+                //Create a variable named books and assign it the results from the xml.getElementsByTagName(“book”) function call.
+                let books = xml.getElementsByTagName("book");
+                //Create a variable named tableData and build the header for an HTML table using the CSS id “bookTable” and CSS class “table
+                let tableData = `
+                <table id='bookTable' class='table'>
+                    <thead>
+                        <th>ISBN</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Pages</th>
+                        <th>Authors</th>
+                    </thead>
+                    <tbody>`;
+
+                    // Using a for...of statement, iterate over the books variable and append each XML object to the bookTable variable
+                for (let book of books) {
+                    let isbn = book.getElementsByTagName("isbn")[0].childNodes[0].nodeValue;
+                    let title = book.getElementsByTagName("title")[0].childNodes[0].nodeValue;
+                    let description = book.getElementsByTagName("description")[0].childNodes[0].nodeValue;
+                    let pages = book.getElementsByTagName("pages")[0].childNodes[0].nodeValue;
+                    let author = book.getElementsByTagName("author")[0].childNodes[0].nodeValue;
+                    
+                    tableData += `<tr><td data-value="ISBN"><a href="#" class="isbn-link">${isbn}</a></td><td data-value="title">${title}</td>
+                    <td data-value="description">${description}</td><td data-value="Pages">${pages}</td><td data-value="Author">${author}</td></tr>       `
+                }
+                // close the HTML table string and bind the variable to the bookList div’s innerHTML.
+                tableData += `</tbody></table>`;
+                document.getElementById('bookList').innerHTML = tableData;
+            }
+
+            //Create a function named anchorClicked() with a single parameter of the value e.
+            function anchorClicked(e) {
+
+                e.preventDefault();
+
+                let self = this;
+                let cell = self.parentElement;
+                let row = cell.parentElement;
+
+                let data = row.querySelectorAll("td");
+                 //build an HTML string for an unordered list and set an inline CSS style to list-style- type: none
+                let bookData = `<ul style="list-style-type: none;">`;
+                 //use a for...of loop to iterate over the data variable and append the iterated object dataset fields to the unordered list
+                for (let field of data) {
+                    bookData += `<li><b>${field.dataset.value}</b>: ${field.innerHTML}</li>`;
+                }
+                
+                // bind the bookData variable to the selectedBook.innerHTML property.
+                document.getElementById('selectedBook').innerHTML = bookData;
+            }
+            //Create a function named addIsbnClickEvents()
+            function addISBNClickEvents() {
+                let viewButtons = document.querySelectorAll("#bookTable tbody .isbn-link");
+                for (let index = 0; index < viewButtons.length; index++) {
+                    viewButtons[index].addEventListener("click", anchorClicked);
+                }
+            }
+        </script>
+    </body>
+</html>

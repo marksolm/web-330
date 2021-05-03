@@ -59,16 +59,7 @@
         <div class="assign-content">
             <div class="card">
                 <div class="card-title">Shopping Cart</div>
-                <div class="card-content" id="shoppingCart">
-                    <table>
-                       <thead>
-
-                       </thead>
-                       <tbody>
-                        
-                      </tbody>
-                 </table>
-                </div>
+                <div class="card-content" id="shoppingCart"></div>
             </div>
         </div>
              <!-- this is the beginning of Javascript  -->
@@ -96,7 +87,7 @@
                 let productValue = productList.options[productList.selectedIndex].value;
 
                 // Using an if statement, compare the product variable against the string value .
-                if (product != "Select") {
+                if (product != "--Select--") {
                     shoppingCart.add(new Product(product, productValue));
                   //Call the setCartCount() function.
                     setCartCount();
@@ -110,12 +101,12 @@
                 let cartDisplayTable = `<table class="table"><tr><th>ID</th><th>Name</th><th>Price</th>`;
 
                 for (let _products of shoppingCart) {
-                    let tableData = `
+                      cartDisplayTable += `
                     <tr>
                         <td>${_products.id}</td>
                         <td>${_products.name}</td>
                         <td>${_products.price}</td>
-                    </tr>`;
+                    </tr>`
 
                 }
                 cartDisplayTable += `</table>`

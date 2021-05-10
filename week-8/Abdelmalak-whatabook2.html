@@ -1,0 +1,155 @@
+<!--
+    Title: Abdelmalak-whatabook2.html
+     Author: Soliman Abdelmalak
+     Date: 05/08/2021
+     Description: This is a page linked to the web-330 landing site under the weekly assignments list for Assignment 8.2.
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+     <title>WEB 330 - Enterprise JavaScript II</title>
+     <!-- These are the meta tags -->
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta name="description" content="Advance JavaScript language" />
+     <meta name="keywords" content="CSS, HTML, Web Development, Enterprise JavaScript II" />
+     <meta name="robots" content="nofollow" />
+     <meta name="author" content="Professor Krasso">
+     <!-- this is internal links for stylesheet. -->
+     <link rel="stylesheet" href="../theme.css">
+     <link rel="stylesheet" href="../site.css">
+     <!-- this is an external link to the CDN for font-awesome. -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <!-- this is an external link for the google fonts. -->
+     <link href="https://fonts.gstatic.com" rel="preconnect">
+     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+    </head>
+    <body class="light-theme">
+        <div class="card-container">
+         <!-- This is the setup for class app-header. -->
+         <div class=" app-header">Welcome to the WhatABook, Part 2 App!</div>
+            <div class= "card">
+                 <!-- card-title with a text value of Book Listing-->
+                 <div class="card-title">Book Listing</div>
+                 <!-- card-content with an id of bookList-->
+                 <div class="card-content" id="bookList"></div>  
+            </div>
+         <!-- this is an internal link to the landing page index. -->
+            <div> <a id="return-home" href="../index.html">Return</a></div>
+            <div class="card">
+                <!-- card-title with a text value of “Selected Book” -->
+                <div class="card-title">Selected Book</div>
+                <!-- card-content with an id of futureValue. -->
+                <div class="card-content"  id="selectedBook"></div>
+            </div>
+        </div>
+     <!-- this is the beginning of Javascript  -->
+        <script type="application/javascript" src="../theme.js"></script>
+        <script type='module'>
+         // Add an import statement for the HttpClient class.
+            import { HttpClient } from "./http-client.js";
+
+           // A new HttpClient object and assign it to a new variable named http.
+           let http = new HttpClient();
+           // Create a variable named isbns and assign it an array of ISBN numbers.
+           const isbns = [
+               '0345339681',
+               '0261103571',
+               '9780593099322',
+               '9780261102361',
+               '9780261102378',
+               '9780590302715',
+               '9780316769532',
+               '9780743273565',
+               '9780590405959'
+           ]
+
+           //Build a new params object literal.
+           const params = {
+                 "bibkeys": `ISBN: ${isbns.join(",")}`,
+                 "format": "json",
+                 "jscmd": "details"
+               };
+
+           // Call the http.get function and supply it with the open library URL and the params objects.
+           http.get("https://openlibrary.org/api/books", params).then(res => {
+               console.log(res);
+               document.getElementById("bookList").innerHTML = buildHtmlString(res, "table");
+               addISBNClickEvents();
+           })
+           .catch(e => {
+               console.log(e);
+           })
+
+           //Create a function named getBook() that accepts an event object.
+            function getBook(e) {
+               e.preventDefault();
+               // Create a variable named self and assign it the value this 
+               let self = this;
+                // Create a variable named isbn and assign it the innerText of the self variable. 
+               let isbn = self.innerText;
+                //Build a new params object.
+                let newParm = {};
+                newParm [isbn] = book[isbn];
+                //Call the http.get function supplying it the open library URL and params object literal.
+                http.get("https://openlibrary.org/api/books", params).then(res => {
+            
+                     document.getElementById("selectedBook").innerHTML = buildHtmlString(newParm, "ul");
+                })
+
+               //Add a catch() clause for the error object.
+               .catch(e => {
+                   console.log(e);
+               })
+            }
+
+           //Create a function named buildHtmlString with two parameters: res and format.
+           function buildHtmlString(res, format) {
+               //Create a variable named tableString and supply it with an HTML string for a table header
+               let tableString = `<table><tr><th>ISBN</th><th>Title</th><th>Description</th><th>Pages</th><th>Authors</th></tr>`;
+               
+                //Create a variable named ulString and set it to an empty string.
+               let ulString = '';
+                //3) Using a for in statement, iterate over the res parameter.
+               for (let key in res) {
+                  ulString += "<ul style='list-style-type: none; text-align: left;'>";
+                   if (res.hasOwnProperty(key)) {
+                       let authors = [];
+                       if (res[key].details.authors) {
+                            authors = res[key].details.authors.map(function(author) {
+                               return author.name;
+                            }
+                        )
+                           console.log(res[key].details.isbn_10)
+
+                        let book = {
+                         sbn: res[key].details.isbn_13 ? res[key].details.isbn_13 : book.details.isbn_10,
+                         title: res[key].details.title,
+                         description: res[key].details.subtitle ? res[key].details.subtitle : "N/A",
+                         pages: res[key].details.number_of_pages ? res[key].details.number_of_pages : "N/A",
+                         authors: authors.join(",")
+                       } 
+                    }
+
+                   ulString += `<li><b>ISBN:</b> ${book.isbn}</li><li><b>Title:</b> ${book.title}</li><li><b>Description:</b> ${book.description}</li>
+                   <li><b>Pages:</b> ${book.pages}</li><li><b>Authors:</b> ${book.authors}</li>`;
+
+                   tableString += `<tr><td><a href="#" class="isbn-link">${book.isbn}</a></td><td>${book.title}</td><td>${book.description}</td>
+                       <td>${book.pages}</td><td>${book.authors}</td></tr>`;
+                   }
+                   //close the HTML tableString 
+                    tableString += "</table>";
+                    ulString += "</ul>";
+                }
+                if (format === "table")
+                {
+                    return tableString
+                }
+                else 
+                {   
+                    return tableString `  `
+                }      
+            }
+       </script>
+    </body>
+</html>
